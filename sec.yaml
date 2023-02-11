@@ -1,0 +1,16 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: SecurityGroup
+metadata:
+  labels:
+    security-test: test
+  name: test-spot
+spec:
+  forProvider:
+    description: Allow TLS inbound traffic
+    name: allow_tls
+    region: us-east-1
+    tags:
+      Name: allow_tls
+    vpcId: vpc-0cd10ca331ef398f3
+  providerConfigRef:
+    name: ci-staging

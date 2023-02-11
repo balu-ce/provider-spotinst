@@ -10,12 +10,12 @@ import (
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
-	"github.com/upbound/upjet-provider-template/config/null"
+	"github.com/freshworks/provider-spotinst/config/spotinstelasticgroup"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/upbound/upjet-provider-template"
+	resourcePrefix = "spotinst"
+	modulePath     = "github.com/freshworks/provider-spotinst"
 )
 
 //go:embed schema.json
@@ -34,7 +34,7 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		spotinstelasticgroup.Configure,
 	} {
 		configure(pc)
 	}

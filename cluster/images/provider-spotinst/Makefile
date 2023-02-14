@@ -25,6 +25,7 @@ img.build.shared:
 	@cp Dockerfile $(IMAGE_TEMP_DIR) || $(FAIL)
 	@cp terraformrc.hcl $(IMAGE_TEMP_DIR) || $(FAIL)
 	@cp -r $(OUTPUT_DIR)/bin/ $(IMAGE_TEMP_DIR)/bin || $(FAIL)
+	@$(INFO) Pring the platforms to build $(IMAGE_PLATFORMS)
 	@docker buildx build $(BUILD_ARGS) \
 		--platform $(IMAGE_PLATFORMS) \
 		--build-arg TERRAFORM_VERSION=$(TERRAFORM_VERSION) \
